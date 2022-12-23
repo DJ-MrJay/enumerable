@@ -5,7 +5,6 @@
 > A Microverse learning project on how to use a module inside a class. The module MyEnumerable implements a subset of the functionality of Enumerable.
 
 ## Built with
-
 - Ruby
 
 ## Getting Started
