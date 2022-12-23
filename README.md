@@ -85,7 +85,7 @@ Ruby
 
 👤 Harrison Njuguna
 
-- GitHub: https://github.com/Harrynoqs)
+- GitHub: https://github.com/Harrynoqs
 - Twitter: https://twitter.com/noqsnoq1
 - LinkedIn:https://linkedin.com/in/harrisonw-njuguna
 
