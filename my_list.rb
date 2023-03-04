@@ -1,34 +1,27 @@
-# Create a class MyList that has an instance variable @list.
-# In MyList implement a method #each that yields successive members of
-# @list and uses the MyEnumerable module.
-
 require_relative 'my_enumerable'
 
 class MyList
-  @list = []
   include MyEnumerable
 
-  def each(&block)
-    @list.each(&block)
+  attr_accessor :list
+
+  def initialize(*args)
+    @list = args.flatten
   end
 
-  def initialize(*lis)
-    @list = lis
+  def each
+    index = 0
+    while index < @list.length
+      yield @list[index]
+      index += 1
+    end
   end
 end
 
-puts list = MyList.new(1, 2, 3, 4)
-# => #<MyList: @list=[1, 2, 3, 4]>
+# Tests
 
-puts(list.all? { |e| e < 5 })
-# => true
-puts(list.all? { |e| e > 5 })
-# => false
+list = MyList.new(1, 2, [3, 4], 5, [6, [7, 8]])
 
-puts(list.any? { |e| e == 2 })
-# => true
-puts(list.any? { |e| e == 5 })
-# => false
-
-puts(list.filter?(&:even?))
-# => [2, 4]
+puts "all?: #{list.all? { |item| item > 0 }}" # all?: true
+puts "any?: #{list.any? { |item| item > 5 }}" # any?: true
+puts "filter: #{list.filter { |item| item.even? }}" # filter: [2, 4, 6, 8]
